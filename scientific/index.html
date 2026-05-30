@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>How Soils Think: An Experimental and Theoretical Search for Suitable Descriptors</title>
+
+		<link rel="stylesheet" href="../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css">
+		
+		<!-- Font awesome is required for the chalkboard plugin -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+		<!-- Chalkboard plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+		
+		<style>
+		
+		.columns {
+			display: flex;
+			align-items: center;
+		}
+
+		.column {
+			flex: 1;
+			margin: 10px;
+		}
+		
+		.custom-column {
+			width: 70%;
+			/* You can add additional styles as needed */
+		}
+		
+		.custom-column60 {
+			width: 60%;
+			/* You can add additional styles as needed */
+		}
+		
+		.custom-column25 {
+			width: 25%;
+			/* You can add additional styles as needed */
+		}
+		
+		.custom-column20 {
+			width: 20%;
+			/* You can add additional styles as needed */
+		}
+		
+		.custom-column38 {
+			width: 38%;
+			/* You can add additional styles as needed */
+		}
+		
+		.custom-column30 {
+			width: 30%;
+			/* You can add additional styles as needed */
+		}
+
+		.custom-column55 {
+			width: 55%;
+			/* You can add additional styles as needed */
+		}
+
+		.custom-column70 {
+			width: 70%;
+			/* You can add additional styles as needed */
+		}
+		
+		.left-align {
+    text-align: left;
+		}
+
+		.right-align {
+    text-align: right;
+		}
+		
+		.reveal section {
+    text-align: left;
+		}
+		
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+		}
+		
+		.color-box-yellow {
+			background-color: #cfc ;
+			padding: 10px ;
+			border: 1px solid green ;
+		} 
+		
+		.reveal .slides section .fragment.step-fade-in-then-out {
+			opacity: 0;
+			display: none; }
+		.reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
+			opacity: 1;
+			display: inline; }
+			
+		.fragment.highlight-orange {
+			opacity: 1;
+			visibility: visible;
+			will-change: color;
+		}
+		.fragment.highlight-orange.visible {
+			color: #f55431
+		}
+		
+		.fragment.highlight-darkgreen {
+			opacity: 1;
+			visibility: visible;
+			will-change: color;
+		}
+		.fragment.highlight-darkgreen.visible {
+			color: #2ac565
+		}
+		
+		.fragment.highlight-purple {
+			opacity: 1;
+			visibility: visible;
+			will-change: color;
+		}
+		.fragment.highlight-purple.visible {
+			color: #8653eb
+		}
+
+		.bracket-group {
+			position: relative;
+			display: inline-block;
+			margin-left: 90px;
+      }
+
+      .bracket-group::before {
+			content: "}";
+			font-size: 2em;   /* Adjust as needed */
+			position: absolute;
+			left: -30px;      /* Move closer or further left */
+			top: 0;
+			height: 100%;
+			display: flex;
+			align-items: center;
+      }
+
+      .bracket-label {
+			margin-left: 20px;
+			font-weight: bold;
+      }
+
+      .grouped-list {
+      position: relative;
+      display: inline-block;
+      padding-right: 60px;
+    }
+
+    .grouped-list::after {
+      content: "}";
+      font-size: 3em;
+      position: absolute;
+      right: 10px;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .bracket-label {
+      position: absolute;
+      right: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+    }
+		
+		</style>
+		
+	</head>
+	
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>How Soils Think</h2>
+					<h3>An Experimental and Theoretical Search for Suitable Descriptors</h3>
+					<br>
+					<br>
+					Max Wiebicke<br>
+					Technische Universität Braunschweig<br><br>
+					<small>Kaiserslautern, 2nd June 2026</small>
+					
+				</section>
+				
+				<section>
+				  
+					<section>
+						<h3>Brumadinho tailings dam collaps</h3>
+						<small>(25th January 2019)</small>
+						<div class="r-stack">
+							<img class="fragment fade-out" data-fragment-index="1" src="images/Brumadinho-1-cite.png" width="90%">
+							<img class="fragment fade-in-then-out" data-fragment-index="1" src="images/Brumadinho-2-cite.png" width="90%">
+							<img class="fragment fade-in-then-out" src="images/Brumadinho-3-cite.png" width="90%">
+							<img class="fragment fade-in-then-out" src="images/mudflows-after-Brumadinho-dam-collapse_IsacNóbrega-cite.jpg" width="70%">
+							<img class="fragment" src="images/Brumadinho_introduction.svg" width="100%">
+							<!--
+							-->
+						</div>
+					</section>
+
+					<section>
+						<h3>Beyond limit states: serviceability</h3>
+						<div class="columns">
+							<div class="custom-column55">
+								<span style="font-size: 25px;">Sheet pile wall (von Wolffersdorf, 1994)</span><br>
+								<img src="images/vonWolffersdorff-1997-messung.jpg" width="49%">
+								<img src="images/vonWolffersdorff-1997-prognose.jpg" width="49%">
+							</div>
+							<div class="column fragment">
+								<span style="font-size: 25px;">Diaphragm walls (Conti et al., 2012)</span><br>
+								<img src="images/Conti-model.jpg" width="85%">
+								<img src="images/Conti-normalised.jpg" width=85%">
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Numerical predictions in geotechnical engineering</h3>
+						<div class="columns">
+							<div class="custom-column">
+								<div class="r-stack">
+									<img src="images/NumericalSim_Brumadinho-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/NumericalSim_Brumadinho-1.svg" width="100%">
+									<!--
+									-->
+								</div>
+							</div>
+							<div class="column">
+								<small class="fragment" data-fragment-index="3">Constitutive models to define material-specific behaviour</small>
+								<div class="fragment" data-fragment-index="3" class="equation-list" style="font-size: 25px;">
+									\[
+									\bm{\dot\sigma} = \bm{f} \underbrace{\left(  ... \right)}_{\mathclap{\text{state variables}}} \bm{\dot\varepsilon}
+									\]
+								</div>
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Material models for geomaterials</h3>
+						<div class="columns">
+							<div class="custom-column60">
+								<div class="r-stack">
+									<img src="images/standardExperiments-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="1" src="images/standardExperiments-1.svg" width="100%">
+									<img class="fragment" data-fragment-index="4" src="images/standardExperiments-2.svg" width="100%">
+								</div>
+							</div>
+							<div class="column">
+								<div class="equation-list" style="font-size: 25px;">
+									<ul>
+										<li class="fragment" data-fragment-index="2">Constitutive models
+										\[
+										\bm{\dot\sigma} = \bm{f} \left(  ... \right) \bm{\dot\varepsilon}
+										\]
+										</li>
+										<li class="fragment" data-fragment-index="3">Typical state variables</li>
+										<ul>
+											<li class="fragment" data-fragment-index="3">stress $\bm\sigma$ (or pressure)</li>
+											<li class="fragment" data-fragment-index="3">density $\varrho$</li>
+										</ul>
+										<li class="fragment" data-fragment-index="4">additional state variables:</li>
+										<ul>
+											<li class="fragment" data-fragment-index="4">fabric related</li>
+										</ul>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+					</section>
+
+
+					<section>
+						<h3>Why fabric?</h3>
+						<div class="columns">
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/smoothing-1.svg" width="85%">
+									<img class="fragment" data-fragment-index="1" src="images/smoothing-2.svg" width="85%">
+									<img class="fragment" data-fragment-index="2" src="images/smoothing.svg" width="85%">
+								</div>
+							</div>
+							<div class="custom-column70">
+								<img class="fragment" data-fragment-index="2" src="images/Engineering_news_record-KT-1920.png" width="100%">
+								<blockquote class="fragment" data-fragment-index="2" style="width: 100%; margin: 0 auto; font-size: 25px;">
+								The fundamental error was introduced by Coulomb, who purposely
+								ignored the fact that sand consists of individual grains, [....]. <br>
+								Coulomb’s idea proved very useful as a working hypothesis [...], but
+								it developed into an obstacle against further progress as soon as its
+								hypothetical character came to be forgotten by Coulomb’s
+								successors.<br><br>
+
+								The way out of the difficulty lies in dropping the old fundamental
+								principles and <b>starting again from the elementary fact that sand
+								consists of individual grains.</b> [...]
+								<footer>— Terzaghi (1920)</footer>
+								</blockquote>
+							</div>
+						</div>
+
+					</section>
+
+
+				</section>
+					
+				<section>
+					<section>
+						<h3>What is fabric?</h3>
+
+						<img src="images/dfg_logo_schriftzug_blau_foerderung_en.jpg" style="position: absolute; top: 10px; left: 70%; width: 300px;">
+
+						<div class="r-stack">
+							<img class="fragment" src="images/fabric_entities-0.jpg" width="100%">
+							<img class="fragment" src="images/fabric_entities-1.jpg" width="100%">
+							<img class="fragment" src="images/fabric_entities.jpg" width="100%">
+						</div>
+					</section>
+					
+					<section>
+						<h3>How to measure fabric changes?</h3>
+						<div class="columns">
+							<div class="column">
+								<img class="fragment" data-fragment-index="1" src="images/Triax-Rendering.svg" width="100%">
+							</div>
+							<div class="custom-column38">
+								<img class="fragment" data-fragment-index="1" src="images/HNMWTC02-macro.svg" width="100%">
+							</div>
+							<div class="custom-column38">
+								<img class="fragment" data-fragment-index="1" src="images/x-rayCT.svg" width="100%">
+							</div>
+						</div>						
+						
+						<!--<div class="columns">
+							<div class="custom-column25" align="center">
+								<img class="fragment" data-fragment-index="2" src="images/spam-logo.png" width="38%">
+							</div>						
+							<div class="column">
+								<span class="fragment" data-fragment-index="2">
+									Extract quantitative information <br>
+									from x-ray tomographies
+								</span>
+							</div>						
+						</div>		-->
+						<!--
+						<div data-id="box" style="height: 60px; width: 800px; background: lightblue;">Extract information from x-ray tomographies</div> 
+						-->						
+					</section>
+
+					<section>
+						<h3>How to quantitatively determine fabric?</h3>
+
+						<div class="r-stack">
+							<img class="fragment" data-fragment-index="1" src="images/Simplifying_images.png" width="80%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -0px;">
+							<small class="fragment" data-fragment-index="1">(Wiebicke et al., 2017)</small>
+						</p>
+
+						<div class="r-stack">
+							<img class="fragment" data-fragment-index="1" src="images/spam-logo-1.png" width="20%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -20px;">
+							<small class="fragment" data-fragment-index="1" >(Stamati et al., 2020)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+							</small>
+						</p>
+<!--
+						<div class="columns">
+							<div class="custom-column25" align="center">
+								<img class="fragment" data-fragment-index="2" src="images/spam-logo.png" width="38%">
+							</div>
+							<div class="column">
+								<span class="fragment" data-fragment-index="2">
+									(Stamati et al., 2020)
+								</span>
+							</div>
+						</div>-->
+						<!--
+						<div data-id="box" style="height: 60px; width: 800px; background: lightblue;">Extract information from x-ray tomographies</div>
+						-->
+					</section>
+					
+					<section>
+						<h3>Fabric throughout a triaxial compression test</h3>
+						<div class="columns">
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/HNMWTC02-macro+fabric-01.svg" width="100%">
+									<img class="fragment" data-fragment-index="1" src="images/HNMWTC02-macro+fabric-05.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/HNMWTC02-macro+fabric-12.svg" width="100%">
+								</div>
+							</div>
+							
+							<div class="custom-column25">
+								<div class="r-stack">
+									<img src="images/HNMWTC02-01A_16bit_CS.png" width="100%">
+									<img class="fragment" data-fragment-index="1" src="images/HNMWTC02-05_16bit_CS.png" width="100%">
+									<!--
+									<img class="fragment fade-in-then-out" data-fragment-index="2" src="images/HNMWTC02-08_16bit_CS.png" width="100%">
+									-->
+									<img class="fragment" data-fragment-index="2" src="images/HNMWTC02-12_16bit_CS.png" width="100%">
+								</div>
+							</div>
+							
+							<div class="custom-column25">
+								<center><small>Contact Fabric Tensor</small>
+									<div class="r-stack">
+										<img src="images/HNMWTC02-01.png" width="100%">
+										<img class="fragment" data-fragment-index="1" src="images/HNMWTC02-05.png" width="100%">
+										<!--
+										<img class="fragment fade-in-then-out" data-fragment-index="2" src="images/HNMWTC02-08.png" width="100%">
+										-->
+										<img class="fragment" data-fragment-index="2" src="images/HNMWTC02-12.png" width="100%">
+									</div>
+								</center>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Fabric as a state variable &#10137; Evolution law</h3>
+
+						<img src="images/logo-utwente.png" style="position: absolute; top: 1px; left: 85%; width: 140px;">
+
+						<div class="columns">
+							<div class="custom-column30">
+								<div class="equation-list" style="font-size: 30px;">
+									\[
+									\dot{\bm{F}} = \bm{H} \left( \dot\varepsilon_s^p, \bm{\sigma}, \bm{F}, \rho \right)
+									\]
+								</div>
+								<p class="right-align" style="display: block; margin-top: -0px;">
+									<small>(Zhao et al. (2020))</small>
+								</p>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/FabricModellingTwente-0.svg" width="80%">
+									<img class="fragment" data-fragment-index="2" src="images/FabricModellingTwente.svg" width="80%">
+								</div>
+								<p class="right-align" style="display: block; margin-top: -40px;">
+									<small class="fragment" data-fragment-index="1">(Zhao et al. (2021))</small>
+								</p>
+							</div>
+
+						</div>
+
+					</section>
+
+					<!--<section>
+						<h3>Localisation of the fabric state</h3>
+						<small>Wiebicke et al. (2020)</small>
+						<div class="columns">
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/extractingSubsets_VarB-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/extractingSubsets_VarB-1.svg" width="100%">
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/HNMWTC02-subvolumes-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="3" src="images/HNMWTC02-subvolumes.svg" width="100%">
+								</div>
+							</div>
+						</div>
+					</section>-->
+					
+
+					<!--<section>
+						<h3>Localisation in sand samples</h3>
+						<div class="columns">
+							<div class="custom-column38">
+								<div class="r-stack">
+									<img src="images/HNMWTC02_stressratio-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="1" src="images/HNMWTC02_stressratio-1.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/HNMWTC02_stressratio-2.svg" width="100%">
+									<img class="fragment" data-fragment-index="3" src="images/HNMWTC02_stressratio.svg" width="100%">
+								</div>
+							</div>
+							
+							
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/DDIC_TC02-rotations-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/DDIC_TC02-rotations-1.svg" width="100%">
+									<img class="fragment" data-fragment-index="3" src="images/DDIC_TC02-rotations-2.svg" width="100%">
+								</div>
+							</div>							
+						</div>
+						
+					</section>-->
+					
+					<!--
+					<section>
+						<h3>Heterogeneity of the state</h3>
+												
+					</section>
+					-->
+						
+					<section>
+						<h3>Evolution of the heterogeneity of the state</h3>
+						<small>Schmidt et al. (2022)</small>
+						<div class="columns">
+							<div class="custom-column30">
+								<div class="r-stack">
+									<img src="images/REVs-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="0" src="images/REVs-1.svg" width="100%">
+									<img class="fragment" data-fragment-index="1" src="images/REVs.svg" width="100%">
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="0" src="images/RVE_size-01_Var3.svg" width="100%">
+								</div>
+							</div>
+
+						</div>
+
+					</section>
+
+					<section>
+						<h3>Evolution of the heterogeneity of the state</h3>
+						<small>Schmidt et al. (2022)</small>
+						<div class="columns">
+							<div class="custom-column60">
+								<div class="r-stack">
+									<img src="images/verticalSlices-01.png" width="100%">
+									<img class="fragment" data-fragment-index="3" src="images/verticalSlices-05.png" width="100%">
+									<img class="fragment" data-fragment-index="4" src="images/verticalSlices-10.png" width="100%">
+									<img class="fragment" data-fragment-index="5" src="images/verticalSlices-12.png" width="100%">
+								</div>
+							</div>							
+							
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/HNMWTC02-heterogeneity-01.svg" width="100%">
+									<img class="fragment" data-fragment-index="3" src="images/HNMWTC02-heterogeneity-05.svg" width="100%">
+									<img class="fragment" data-fragment-index="4" src="images/HNMWTC02-heterogeneity-10.svg" width="100%">
+									<img class="fragment" data-fragment-index="5" src="images/HNMWTC02-heterogeneity-12.svg" width="100%">
+								</div>
+							</div>
+							
+						</div>
+											
+					</section>
+					
+					
+					<!--<section>
+						<h3>Summary</h3>
+						<ul>
+							<li>Developed (open source) tools to quantify grain-scale fabric</li>
+							<li style="color:#CCCCCC">Experimental campaign to study fabric evolution of sands</li>
+							<li>Evolution equation for fabric in constitutive models</li>
+							<li>Revealed the heterogeneity of sand samples</li>
+						</ul>
+						
+						<p>
+						
+						<h3 class="fragment" data-fragment-index="2">Outlook</h3>
+						<ul>
+							<li class="fragment" data-fragment-index="2">Impact of Heterogeneity on our interpretation of so-called element tests</li>
+							<li class="fragment" data-fragment-index="2">Towards a more complete description of the state of a sand</li>
+							<li class="fragment" data-fragment-index="2" style="color:#CCCCCC">Grain-scale origin for hysteresis in load cycles</li>
+						</ul>
+					
+					</section>-->
+					
+				</section>
+				
+				<section>
+					<section>
+						<h3>What about the fabric of clays?</h3>
+
+						<img src="images/logo-walter-benjamin-gross-data.jpg" style="position: absolute; top: -10px; left: 80%; width: 140px;">
+
+						<div class="r-stack">
+							<img class="fragment" src="images/clay_scales-0.svg" width="100%">
+							<img class="fragment" src="images/clay_scales-1.svg" width="100%">
+							<img class="fragment" src="images/clay_scales.svg" width="100%">
+						</div>
+					</section>
+					
+					<section>
+						<h3>A new state variable</h3>
+						<p>An analogy to thermal temperature (Jiang and Liu, 2009)</p>
+						<div class="r-stack">
+							<img src="images/Tm_visualisation_move-0.svg" width="100%">
+							<img class="fragment" src="images/Tm_visualisation_move-1.svg" width="100%">
+							<img class="fragment" src="images/Tm_visualisation_move-2.svg" width="100%">
+							<img class="fragment" src="images/Tm_visualisation_move.svg" width="100%">
+						</div>
+					</section>
+
+
+					<section>
+						<h3>The hydrodynamic procedure</h3>
+						<span class="fragment" data-fragment-index="1" style="font-size: 40px;"><b>Lev Landau and co-workers (1960's)</b></span><br>
+						<ul class="fragment" data-fragment-index="1" style="font-size: 35px;">
+							<li>Conservation of energy, momentum and mass</li>
+							<li>Second law of thermodynamics</li>
+							<li>Thermodynamic pressure-density relation</li>
+						</ul>
+
+						<br>
+
+						<span class="fragment" data-fragment-index="2" style="font-size: 40px;"><b>Mario Liu and co-workers (2000's)</b></span><br>
+						<ul class="fragment" data-fragment-index="2" style="font-size: 35px;">
+							<li>Onsager’s reciprocity of irreversible fluxes</li>
+							<li>Vanishment of irreversible fluxes close to equilibrium</li>
+							<li>Two scales of temperatures in heterogeneous media</li>
+							<li>Two-stage irreversibility</li>
+						</ul>
+
+					</section>
+
+					<!--<section>
+						<style>
+							.grouped-list {
+							position: relative;
+							display: inline-block;
+							padding-right: 60px;
+							}
+
+							.grouped-list::after {
+							content: "}";
+							font-size: 5em;
+							transform: scaleX(0.7); /* Try values between 0.5 and 0.9 */
+							display: inline-block;  /* required for transform */
+							position: absolute;
+							right: -200px;
+							top: 0;
+							height: 100%;
+							display: flex;
+							align-items: center;
+							}
+
+							.bracket-label {
+							position: absolute;
+							right: -50px;
+							top: 50%;
+							transform: translateY(-50%);
+							font-weight: bold;
+							}
+						</style>
+
+						<ul class="grouped-list" style="font-size: 30px;">
+							<li>Conservation of energy, momentum and mass</li>
+							<li>Second law of thermodynamics</li>
+							<li>Thermodynamic pressure-density relation</li>
+						</ul>
+						<div class="bracket-label">Lev Landau (1960's)</div>
+
+						<ul class="grouped-list" style="font-size: 30px;">
+							<li>Onsager’s reciprocity of irreversible fluxes</li>
+							<li>Vanishment of irreversible fluxes close to equilibrium</li>
+							<li>Two scales of temperatures in heterogeneous media</li>
+							<li>Two-stage irreversibility</li>
+						</ul>
+						<div class="bracket-label">Mario Liu (2000's)</div>
+
+					</section>-->
+
+					<section>
+						<h3>The hydrodynamic procedure</h3>
+						<h4>Material state</h4>
+						<div class="equation-list" style="font-size: 30px;">
+							<ul>
+								<li class="fragment" data-fragment-index="0">Internal energy density <br>
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="0" src="images/internalEnergyDensity-0.svg" width="70%">
+									<img class="fragment" data-fragment-index="1" src="images/internalEnergyDensity.svg" width="70%">
+								</div>
+								</li>
+
+								<li class="fragment" data-fragment-index="2"> Thermodynamic pressure
+								\[
+								p^T \equiv - \frac{\partial \left(u / \rho \right)}{\partial \left(1 / \rho\right)}
+								\]
+								</li>
+
+								<li class="fragment" data-fragment-index="3"> Dissipative stress
+								$$
+								\sigma^d_{ij} \equiv \sigma_{ij} - \sigma_{ij}^e - p^T \delta_{ij}
+								$$
+								</li>
+							</ul>
+						</div>
+					</section>
+					
+					<section>
+						<h3>The hydrodynamic procedure</h3>
+						<div class="equation-list" style="font-size: 30px;">
+							<ul>
+								<li class="fragment" data-fragment-index="1"> Total entropy production / Thermodynamic 
+								<span class="fragment custom highlight-orange" data-fragment-index="2">fluxes</span> 
+								and <span class="fragment custom highlight-darkgreen" data-fragment-index="2">forces</span>
+								<!--<span class="fragment" data-fragment-index="3"><br>Two-stage irreversibility (Jiang and Liu, 2009)</span>-->
+								
+									
+									<div class="r-stack">
+										<span class="fragment fade-out" data-fragment-index="2">
+											\[
+											R + R_m = f_i \nabla_i T + f_i^m \nabla_i T_m
+											+ \sigma_{ij}^d\dot\varepsilon_{ij} + \sigma_{ij}^e\dot\varepsilon_{ij}^p \geq 0
+											\]
+										</span>
+										<span class="fragment fade-in" data-fragment-index="2">
+											\[
+											R + R_m = \textcolor{#f55431}{f_i} \textcolor{#2ac565}{\nabla_i T} + \textcolor{#f55431}{f_i^m} \textcolor{#2ac565}{\nabla_i T_m} 
+											+ \textcolor{#f55431}{\sigma_{ij}^d} \textcolor{#2ac565}{\dot\varepsilon_{ij}} 
+											+ \textcolor{#2ac565}{\sigma_{ij}^e} \textcolor{#f55431}{\dot\varepsilon_{ij}^p} \geq 0
+											\]
+										</span>
+
+										<!--<span class="fragment" data-fragment-index="3">
+											\[
+											R_m = \textcolor{#f55431}{f_i^m} \textcolor{#2ac565}{\nabla_i T_m} +
+											\textcolor{#f55431}{\sigma_{ij}^d} \textcolor{#2ac565}{\dot\varepsilon_{ij}} - \eta T_m^3  \\
+											R  = \textcolor{#f55431}{f_i} \textcolor{#2ac565}{\nabla_i T} + 
+											\textcolor{#2ac565}{\sigma_{ij}^e} \textcolor{#f55431}{\dot\varepsilon_{ij}^p} + \eta T_m^3 \geq 0 \\
+											\]
+										</span>-->
+
+									</div>
+								</li>
+								
+								<li class="fragment" data-fragment-index="4"><span class="fragment custom highlight-purple" data-fragment-index="5">Transport coefficients</span> 
+								for plastic strain rate (Onsager, 1931)
+									<div class="r-stack">
+										<span class="fragment fade-out" data-fragment-index="5">
+											\[\begin{aligned}
+											\textcolor{#f55431}{\dot\varepsilon_{ij}^p} &amp;= \chi_{ijkl} ~ \textcolor{#2ac565}{\sigma_{ij}^e} \\
+											\begin{bmatrix} \dot\varepsilon_v^p \\ \dot\varepsilon_s^p \end{bmatrix} &amp;= 
+											T_m \begin{bmatrix} \bar{a} & \bar{b} \\ \bar{b} & \bar{c} \end{bmatrix} \begin{bmatrix} p^e \\ q^e \end{bmatrix}
+											\end{aligned}\]
+										</span>
+										<span class="fragment" data-fragment-index="5">
+											\[\begin{aligned}
+											\textcolor{#f55431}{\dot\varepsilon_{ij}^p} &amp;= \textcolor{#8653eb}{\chi_{ijkl}} ~ \textcolor{#2ac565}{\sigma_{ij}^e} \\
+											\begin{bmatrix} \dot\varepsilon_v^p \\ \dot\varepsilon_s^p \end{bmatrix} &amp;= 
+											\textcolor{#8653eb}{ T_m \begin{bmatrix} \bar{a} & \bar{b} \\ \bar{b} & \bar{c} \end{bmatrix}} \begin{bmatrix} p^e \\ q^e \end{bmatrix}
+											\end{aligned}\]
+										</span>
+								</li>
+								
+							</ul>
+						</div>
+						<!--
+						<img class="fragment" data-fragment-index="3" style="position: absolute; bottom: 10px; right: -40px;" src="images/twoStageIrreversibility-black.svg" width="35%" absolute>-->
+
+						
+					</section>
+					
+								<!--
+								Total entropy production / Thermodynamic <span style="background-color: yellow;">fluxes</span> 
+								and <span style="background-color: skyblue;">forces</span>
+								-->
+								
+								<!--
+								<span class="fragment step-fade-in-then-out" data-fragment-index="1">fluxes</span>
+								<span class="fragment step-fade-in-then-out" data-fragment-index="2" style="background-color: yellow;">fluxes</span>
+								and 
+								<span class="fragment step-fade-in-then-out">forces</span>
+								<span class="fragment step-fade-in-then-out" style="background-color: skyblue;">forces</span>
+								-->
+									<!--
+									<div class="r-stack">
+										<span class="fragment fade-out" data-fragment-index="1">
+										\[
+										R + R_m = f_i \nabla_i T + f_i^m \nabla_i T_m
+										+ \sigma_{ij}^d\dot\varepsilon_{ij} + \sigma_{ij}^e\dot\varepsilon_{ij}^p \geq 0
+										\]
+										</span>
+										<span class="fragment" data-fragment-index="1">
+										\[
+										R + R_m = \colorbox{yellow}{$f_i$} \colorbox{skyblue}{$\nabla_i T$} + \colorbox{yellow}{$f_i^m$} \colorbox{skyblue}{$\nabla_i T_m$} 
+										+ \colorbox{yellow}{$\sigma_{ij}^d$} \colorbox{skyblue}{$\dot\varepsilon_{ij}$} + \colorbox{skyblue}{$\sigma_{ij}^e$} \colorbox{yellow}{$\dot\varepsilon_{ij}^p$} \geq 0
+										\]
+										</span>
+									</div>
+									-->
+					
+					<section>
+						<h3>Model formulation</h3>
+						<div class="equation-list" style="font-size: 30px;">
+							\[
+							\begin{bmatrix} \dot\varepsilon_v^p \\ \dot\varepsilon_s^p \end{bmatrix} =
+							\textcolor{#8653eb}{ T_m \begin{bmatrix} \bar{a} & \bar{b} \\ \bar{b} & \bar{c} \end{bmatrix}} \begin{bmatrix} p^e \\ q^e \end{bmatrix}
+							\]
+						</div>
+
+						<div class="r-stack">
+							<img class="fragment" src="images/attractors-0.svg" width="100%">
+							<img class="fragment" src="images/attractors-1.svg" width="100%">
+							<img class="fragment" src="images/attractors-2.svg" width="100%">
+							<img class="fragment" src="images/attractors.svg" width="100%">
+						</div>
+					</section>
+
+					<section>
+						<h3>The Model (Wiebicke &amp; Einav, 2024)</h3>
+						<div class="r-stack">
+							<img src="images/theModel_Tm_QR.svg" width="100%">
+						</div>
+					</section>
+
+					<section>
+						<h3>Stationary response</h3>
+						<h4>Experiments by Wichtmann and Triantafyllidis (2018)</h4>
+						<div class="r-stack">
+							<img src="images/wichtmann_experiments.jpg" width="80%">
+							<img class="fragment" src="images/wichtmann_simulations.jpg" width="80%">
+						</div>
+					</section>
+
+					<section>
+						<h3>Rate dependence &amp; apparent rate independence?</h3>
+						<br>
+						<div class="r-stack">
+							<img src="images/Terracotta_rate_dependence-0.svg" width="100%">
+							<img class="fragment" data-fragment-index="1" src="images/Terracotta_rate_dependence.svg" width="100%">
+						</div>
+					</section>
+
+					<section>
+						<h3>Apparent rate independence?</h3>
+						<h4>Experiments by Lade and Karimpour (2014)</h4>
+						<div class="r-stack">
+							<img src="images/Lade2014_Data.svg" width="100%">
+							<img class="fragment" data-fragment-index="1" src="images/Lade2014_Data+Terracotta_params3.svg" width="100%">
+						</div>
+					</section>
+
+					<section>
+						<h3>Predictions - Oedometric compression</h3>
+						<small class="fragment" data-fragment-index="1">Experiment from Krieg and Niemunis (1997)</small>
+						<div class="columns">
+							<div class="custom-column30">
+								<img src="images/Oedo_stressStrain.svg" width="100%">
+							</div>							
+							
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/TC-kriegArrows-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/TC-kriegArrows.svg" width="100%">
+								</div>
+							</div>
+							
+						</div>
+					</section>
+
+					<!--<section>
+						<h3>Predictions - Triaxial undrained compression</h3>
+						<div class="columns">
+							<div class="custom-column20">
+								<img src="images/Triax_stressStrain.svg" width="100%">
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/RateDep_txu_presentation_single-01.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/RateDep_txu_presentation_single.svg" width="100%">
+								</div>
+							</div>
+
+						</div>
+					</section>
+					-->
+
+					
+					<!--<section>
+						<h3>Summary</h3>
+						<ul>
+							<li>Introduced a (new) physics-based state variable for clays</li>
+							<li>Developed a surprisingly simple, yet predictive model for clays</li>
+						</ul>						
+						<p>
+						
+						<h3 class="fragment" data-fragment-index="2">Outlook</h3>
+						<ul>
+							<li class="fragment" data-fragment-index="2">Hysteresis in load cycles</li>
+							<li class="fragment" data-fragment-index="2">Transition to clay suspension &rarr; Mudflows</li>
+							<li class="fragment" data-fragment-index="2">Implementation in FEM, MPM codes</li>
+						</ul>
+					</section>-->
+								
+				</section>
+				
+				<section>
+					<h3>So what?</h3>
+					<p>Relevance of the <b>State of Soils</b> to Geotechnical Engineering</p>
+					<div class="r-stack">
+						<img src="images/lastSlide-geotechnics-0.jpg" width="100%">
+						<img src="images/lastSlide-geotechnics.jpg" width="100%">
+					</div>
+				
+				</section>
+
+				<section>
+
+					<section>
+						<h4>Continuation: Micromechanics at load reversal of granular soils</h3>
+
+						<div class="columns">
+							<div class="custom-column38">
+								<img src="images/intro_loading_defense.svg" width="100%">
+							</div>
+							<div class="custom-column30">
+								<img class="fragment" data-fragment-index="1" src="images/TriaxCycles_tochnog_igsNorm_unload+reload_defense.svg" width="100%">
+								<img class="fragment" data-fragment-index="1" src="images/HNMWTC_anisotropy_incremental_defense.svg" width="100%">
+							</div>
+							<div class="custom-column30">
+								<span class="fragment" data-fragment-index="2" style="font-size: 25px;">Towards Numerical Modelling</span>
+								<img class="fragment" data-fragment-index="2" src="images/Vlahinic_2014-levelsets-2.jpg" width="100%">
+								<img class="fragment" data-fragment-index="2" src="images/Kawamoto_2018_LS-DEM-forces.png" width="100%">
+								<p class="right-align" style="display: block; margin-top: 0px; font-size: 20px;">
+									<span class="fragment" data-fragment-index="2">(Kawamoto et al., 2018)</span>
+								</p>
+							</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Continuation: Clay hydrodynamics</h3>
+
+						<div class="columns">
+							<div class="column">
+								<ul style="font-size: 30px;">
+									<li>Elasticity</li>
+									<li>Regularisation
+									\[
+									R + R_m = f_i \nabla_i T + f_i^m \nabla_i T_m
+									+ ...
+									\]
+									</li>
+									<li>Viscosity and transition solid &#10137; fluid
+									\[ \sigma_{ij} = \sigma^e_{ij} + \sigma^d_{ij} + p^T \delta_{ij}
+									\]
+									</li>
+									<li>Multi-Physics couplings</li>
+									<ul>
+										<li>temperature</li>
+										<li>pore-fluid chemistry</li>
+									</ul>
+									<!--<li class="fragment" data-fragment-index="3">Implementation in FEM and MPM codes</li>
+									<ul class="fragment" data-fragment-index="3">
+										<li>Rainfall induced landslides <br>
+										&#10137; subsequent mudflows</li>
+										<li>Climate-induced environmental changes</li>
+									</ul>-->
+								</ul>
+							</div>
+							<div class="custom-column60">
+								<div class="r-stack">
+									<img class="fragment fade-out" data-fragment-index="1"  src="images/masi-2025.png" width="90%">
+									<p class="right-align" style="display: block; margin-top: 500px; font-size: 20px;">
+										<span class="fragment fade-out" data-fragment-index="1">(Masi &amp; Einav, 2025)</span>
+									</p>
+									<img class="fragment fade-in" data-fragment-index="1"  src="images/mudflows-after-Brumadinho-dam-collapse_IsacNóbrega-cite.jpg" width="90%">
+								</div>
+							</div>
+						</div>
+
+
+					</section>
+
+					<section>
+						<h4>Nature (plant) based engineering</h3>
+						<div class="columns">
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="0" src="images/johanna-wurzeln.png" width="90%">
+									<!--<img class="fragment" data-fragment-index="2" src="images/3D-print.png" width="70%">-->
+								</div>
+
+							</div>
+							<div class="custom-column60">
+								<div class="r-stack">
+									<img class="fragment fade-in-then-out" data-fragment-index="1" src="images/image-segmentation.jpg" width="100%">
+									<video data-autoplay controls muted class="fragment" data-fragment-index="3">
+										<source src="images/Plant03-18.07.mp4" type="video/mp4">
+									</video>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!--<section>
+						<h4>Nature (plant) based engineering</h3>
+						<div class="columns">
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/3D-print.png" width="70%">
+								</div>
+
+							</div>
+							<div class="custom-column60">
+								<img class="fragment fade-in-then-out" data-fragment-index="1" src="images/image-segmentation.jpg" width="100%">
+								<video data-autoplay controls muted class="fragment" data-fragment-index="3">
+									<source src="images/Plant03-18.07.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+					</section>-->
+
+					<section>
+						<h4>Modelling of civil structures</h3>
+
+						<img src="images/keller-logo.svg" style="position: absolute; top: 60px; left: 15%; width: 120px;">
+						<img src="images/Logo-HPA_V2.jpg" style="position: absolute; top: 50px; left: 45%; width: 110px;">
+						<img src="images/the-university-of-sydney-3-logo-png-transparent.png" style="position: absolute; top: 50px; left: 85%; width: 110px;">
+
+
+
+						<div class="columns">
+							<div class="custom-column30">
+								<small>Pile load tests</small> <br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/keller-proj-wehr_2013.png" width="45%">
+								<p class="right-align" style="display: block; margin-top: -30px; font-size: 20px;">
+									(Wehr et al., 2013)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</p>
+								<div style="height: 0.1em;"></div>
+								<img src="images/Keller-proj-VBS2-3_Geschwindigkeit+Impedanz-Zeit_Stoffmodelle-Kopf.svg" width="100%">
+							</div>
+							<div class="custom-column30">
+								<small>Quay walls</small>
+								<img src="images/Fay-SA-Scouring.jpg" width="100%">
+								<p class="right-align" style="display: block; margin-top: -30px; font-size: 20px;">
+									(Fay, 2025)&nbsp;&nbsp;&nbsp;
+								</p>
+								<br>
+								<img src="images/MA_Weber-2019.jpg" width="100%">
+								<p class="right-align" style="display: block; margin-top: -30px; font-size: 20px;">
+									(Weber, 2019)&nbsp;&nbsp;&nbsp;
+								</p>
+							</div>
+							<div class="custom-column30">
+								<small>Heterarchical modelling</small>
+								<img src="images/Marks_2025_Heterarchy.png" width="70%">
+								<br><div style="height: 0.6em;"></div>
+								<img src="images/Marks_2025_Heterarchy-GSD.png" width="100%">
+								<p class="right-align" style="display: block; margin-top: -30px; font-size: 20px;">
+									(Marks et al., 2025)&nbsp;&nbsp;&nbsp;
+								</p>
+							</div>
+
+						</div>
+					</section>
+
+					<section>
+						<h4>Modelling of civil structures</h3>
+						<div class="columns">
+							<div class="column">
+								<img src="images/Mohiuddin-2021_UWA-suctionCaissons.jpg" width="60%">
+								<p class="right-align" style="display: block; margin-top: -30px; font-size: 20px;">
+									(Mohiuddin, 2021)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</p>
+								<img src="images/Helm-2025-failure.png" width="60%">
+							</div>
+							<div class="column">
+								<img src="images/Helm-2025-testing.png" width="80%">
+								<img src="images/Helm-2025-capacity-consolidation.png" width="80%">
+							</div>
+						</div>
+						<img src="images/logo-southampton.jpg" style="position: absolute; top: 40px; left: 80%; width: 160px;">
+					</section>
+
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../reveal.js/plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width: 1200,
+				height: 700,
+				margin: 0.1,
+				hash: true,
+				// Vertical centering of slides
+				center: true,
+				chalkboard: {
+					// add configuration here
+					storage: "MaxTest",
+					//src: "chalkboard.json",
+					theme: "whiteboard",
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealChalkboard, RevealCustomControls ]
+			});
+			Reveal.configure({ pdfSeparateFragments: false });
+		</script>		
+	</body>
+</html>
